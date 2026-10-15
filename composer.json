@@ -1,0 +1,7 @@
+{
+    "name": "lucas/saldoup",
+    "description": "SaldoUp Finance",
+    "require": {
+        "php": ">=8.0"
+    }
+}
