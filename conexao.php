@@ -40,20 +40,21 @@ if (is_file($envFile) && is_readable($envFile)) {
     }
 }
 
-$host = getenv('DB_HOST') ?: 'localhost';
-$dbname = getenv('DB_NAME') ?: 'dev_finances';
-$user = getenv('DB_USER') ?: 'root';
-$pass = getenv('DB_PASS') ?: '';
+$host = getenv('MYSQLHOST') ?: (getenv('DB_HOST') ?: 'localhost');
+$dbname = getenv('MYSQLDATABASE') ?: (getenv('DB_NAME') ?: 'dev_finances');
+$user = getenv('MYSQLUSER') ?: (getenv('DB_USER') ?: 'root');
+$pass = getenv('MYSQLPASSWORD') ?: (getenv('DB_PASS') ?: '');
+$port = getenv('MYSQLPORT') ?: (getenv('DB_PORT') ?: '3306');
 
 try {
-    $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8mb4", $user, $pass, [
+    $pdo = new PDO("mysql:host=$host;port=$port;dbname=$dbname;charset=utf8mb4", $user, $pass, [
         PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
         PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
         PDO::ATTR_EMULATE_PREPARES => false,
     ]);
 } catch (PDOException $e) {
-    // In a production environment, you might want to log this error and show a generic message
+    error_log($e->getMessage());
     http_response_code(500);
-    echo json_encode(['status' => 'error', 'message' => 'Database connection failed: ' . $e->getMessage()]);
+    echo json_encode(['status' => 'error', 'message' => 'Database connection failed.']);
     exit;
 }

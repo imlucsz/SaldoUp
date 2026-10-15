@@ -59,7 +59,9 @@ A interface combina **Dark Mode**, referências visuais de fintechs, cards de re
 
 6. Acesse <http://localhost/saldo-Up/>.
 
-O `.env` é opcional para a leitura da configuração em si: se ele não existir, a aplicação usa os valores padrão definidos em `conexao.php`. Como o schema cria o banco `saldoup` e a conexão atualmente usa `dev_finances` como nome de banco padrão, configure `DB_NAME=saldoup` no `.env` (ou ajuste `DB_NAME` para o banco já utilizado na sua instalação). O `.env` está ignorado pelo Git; nunca publique suas credenciais ou chaves de API.
+O `.env` é opcional para a leitura da configuração em si: se ele não existir, a aplicação usa os valores padrão definidos em `conexao.php`. Como o schema cria o banco `saldoup` e a conexão usa `dev_finances` como nome padrão, configure `DB_NAME=saldoup` no `.env` (ou ajuste `DB_NAME` para o banco já utilizado na sua instalação). O `.env` está ignorado pelo Git; nunca publique suas credenciais ou chaves de API.
+
+Em ambientes hospedados como Railway, a conexão também reconhece as variáveis `MYSQLHOST`, `MYSQLDATABASE`, `MYSQLUSER`, `MYSQLPASSWORD` e `MYSQLPORT`. Quando essas variáveis não estiverem definidas, são usadas as alternativas `DB_HOST`, `DB_NAME`, `DB_USER`, `DB_PASS` e `DB_PORT`, respectivamente. O padrão local da porta é `3306`.
 
 O schema inclui uma conta para primeiro acesso:
 
