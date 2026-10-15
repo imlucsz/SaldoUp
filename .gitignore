@@ -1,0 +1,7 @@
+#Config. pessoal
+.vscode
+anotações.md
+.env
+.env.*
+!.env.example
+.github

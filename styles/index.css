@@ -1,0 +1,387 @@
+/* Header */
+header {
+    background: var(--dark-green);
+
+    padding: 2rem 0 11rem;
+    text-align: center;
+}
+#logo {
+    color: white;
+    font-weight: 100;
+}
+
+
+
+/* Titles */
+h2 {
+    color: var(--dark-blue);
+    font-weight: normal; /* = 400 */
+
+    margin: 3.2rem 0 0.8rem;
+}
+
+
+
+/* Links & Buttons */
+a {
+   color: var(--link-dark-green);
+   text-decoration: none;
+}
+a:hover {
+    color: var(--link-light-green);
+}
+.button.new {
+    display: inline-block;
+    margin-bottom: 0.8rem;
+}
+
+button {
+    width: 100%;
+    height: 50px;
+
+    color: white;
+    background: var(--normal-green);
+
+    padding: 0;
+
+    border: none;
+    border-radius: 0.25rem;
+    -webkit-border-radius: 0.25rem;
+    -moz-border-radius: 0.25rem;
+    -ms-border-radius: 0.25rem;
+    -o-border-radius: 0.25rem;
+
+    cursor: pointer;
+}
+button:hover {
+    background: var(--light-green);
+
+    transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    -ms-transition: all 0.5s;
+    -o-transition: all 0.5s;
+}
+.button.cancel {
+    height: 50px;
+
+    color: var(--normal-red);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid var(--normal-red);
+    border-radius: 0.25rem;
+    -webkit-border-radius: 0.25rem;
+    -moz-border-radius: 0.25rem;
+    -ms-border-radius: 0.25rem;
+    -o-border-radius: 0.25rem;
+
+    opacity: 0.6;
+}
+.button.cancel:hover {
+    opacity: 1;
+
+    transition: all 0.3s;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    -ms-transition: all 0.3s;
+    -o-transition: all 0.3s;
+}
+
+
+
+/* Calendar and Balance */
+#container-calendar-and-opening-balance {
+    margin-bottom: 1.5rem;
+
+    position: relative;
+
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+#container-calendar-and-opening-balance h3#year-calendar {
+    background: linear-gradient(180deg, #2ECC71 0%, #294D38 100%);
+    border-radius: 0.5rem 0.5rem 0 0;
+    color: #E5E5E5;
+    font-size: 1rem;
+    font-weight: 600;
+
+    padding: 0 1rem 1rem 1rem;
+
+    position: absolute;
+    top: -1.5rem;
+    right: 0;
+
+    display: none;
+}
+#balance h2 {
+    color: white;
+    margin-top: 0;
+}
+
+
+
+/* Cards */
+.mini-card {
+    width: fit-content;
+
+    background-color: #296241;
+    border: 3px solid #2ecc71;
+    color: #2ecc71;
+
+    padding: 0.5rem 1rem;
+
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    border-radius: 0.5rem;
+
+    cursor: pointer;
+}
+.mini-card h3 {
+    font-weight: 500;
+
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+.mini-card p {
+    color: #E5E5E5;
+
+    font-size: 1rem;
+    font-weight: 500;
+}
+.card {
+    color: var(--dark-blue);
+    background: white;
+    border-radius: 0.5rem;
+
+    padding: 1rem;
+    margin-bottom: 1rem;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 1rem;
+}
+.card h3 {
+    font-weight: normal;
+    font-size: 1rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.card h3 img {
+    width: 1.125rem;
+}
+.card p {
+    font-weight: normal;
+    font-size: 1.5rem;
+}
+.card.total-month,
+.card.total-balance {
+    color: white;
+}
+.card.positive {
+    background: var(--normal-green);
+}
+.card.negative {
+    background: var(--normal-red);
+}
+
+
+/* Table */
+#transaction {
+    width: 100%;
+
+    display: block;
+    overflow-x: auto;
+}
+#data-table {
+    width: 100%;
+    color: var(--light-blue);
+}
+table thead tr th:first-child,
+table tbody tr td:first-child { /*1°Filho*/
+    border-radius: 0.25rem 0 0 0.25rem;
+    -webkit-border-radius: 0.25rem 0 0 0.25rem;
+    -moz-border-radius: 0.25rem 0 0 0.25rem;
+    -ms-border-radius: 0.25rem 0 0 0.25rem;
+    -o-border-radius: 0.25rem 0 0 0.25rem;
+}
+table thead tr th:last-child,
+table tbody tr td:last-child { /*~°UltimoFilho*/
+    border-radius: 0 0.25rem 0.25rem 0;
+    -webkit-border-radius: 0 0.25rem 0.25rem 0;
+    -moz-border-radius: 0 0.25rem 0.25rem 0;
+    -ms-border-radius: 0 0.25rem 0.25rem 0;
+    -o-border-radius: 0 0.25rem 0.25rem 0;
+}
+table thead th {
+    background: white;
+
+    font-weight: normal;
+    padding: 1rem 2rem;
+
+    text-align: left;
+}
+table tbody tr {
+    opacity: 0.7;
+    cursor: pointer;
+}
+table tbody tr:hover {
+    opacity: 1;
+}
+table tbody tr.deposit-activated td {
+    background-color: #D6FFE7;
+    border-radius: 0.25rem;
+}
+tr.deposit-not-activated {
+    background-color: #FFE4E9;
+    border-radius: 0.25rem;
+}
+tr.deposit-activated td,
+tr.deposit-not-activated td {
+    background-color: transparent;
+}
+table tbody td {
+    background: white;
+    border-spacing: 0 0.5rem; /* Vertical | Horizontal */
+
+    padding: 1rem 2rem;
+}
+td.description {
+    color: var(--dark-blue);
+}
+td.income {
+    color: var(--money-green);
+}
+td.expense {
+    color: var(--money-red);
+}
+td.center-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+img.remove {
+    cursor: pointer;
+}
+
+#balance.database-balance {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1rem;
+}
+#balance.database-balance .card {
+    margin-bottom: 1rem;
+}
+.transaction-toolbar,
+.transaction-actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+}
+.transaction-toolbar {
+    margin: 2rem 0 0.8rem;
+}
+.transaction-toolbar h2 {
+    margin: 0;
+}
+.transaction-actions button {
+    width: auto;
+    min-height: 2.8rem;
+    padding: 0.6rem 1rem;
+}
+.ai-analysis-button {
+    background: var(--dark-green);
+}
+.ai-analysis-button:disabled {
+    cursor: wait;
+    opacity: 0.7;
+}
+.transaction-delete-cell {
+    text-align: center;
+}
+.delete-transaction {
+    display: inline-block;
+    color: var(--normal-red);
+    border: 1px solid currentColor;
+    border-radius: 0.25rem;
+    padding: 0.35rem 0.65rem;
+    white-space: nowrap;
+}
+.delete-transaction:hover {
+    color: white;
+    background: var(--normal-red);
+}
+.empty-transactions {
+    color: var(--light-blue);
+    text-align: center;
+}
+.page-message {
+    padding: 0.75rem 1rem;
+    margin-bottom: 1rem;
+    border-radius: 0.25rem;
+    background: white;
+}
+.error-message {
+    color: var(--normal-red);
+}
+.success-message {
+    color: var(--money-green);
+}
+.ai-analysis-card {
+    width: min(90vw, 34rem);
+    color: var(--dark-blue);
+    border-radius: 0.5rem;
+    line-height: 1.6;
+}
+.ai-analysis-card h2 {
+    margin: 0 2rem 1rem 0;
+}
+.ai-analysis-close {
+    width: 2rem;
+    height: 2rem;
+    position: absolute;
+    top: 0.6rem;
+    right: 0.6rem;
+    color: var(--dark-blue);
+    background: transparent;
+    font-size: 1.5rem;
+}
+.ai-analysis-close:hover {
+    color: white;
+}
+@media (max-width: 620px) {
+    .transaction-toolbar,
+    .transaction-actions {
+        align-items: stretch;
+        flex-direction: column;
+    }
+    .transaction-actions button {
+        width: 100%;
+    }
+}
+
+
+
+/* Footer */
+footer {
+    color: var(--dark-blue);
+    opacity: 0.6;
+
+    padding: 4rem 0 2rem;
+    text-align: center;
+}

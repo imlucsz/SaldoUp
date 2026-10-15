@@ -1,0 +1,38 @@
+@media (min-width: 800px) {
+    html {
+        font-size: 87.5%;/*14px*/
+    }
+    #balance {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1rem;
+    }
+    #balance .card {
+        margin-bottom: 3rem;
+    }
+    div#toast {
+        font-size: 14px;
+    }
+    .float-button {
+        bottom: 40px;
+        right: 40px;
+    }
+}
+
+@media (min-width: 620px) {
+    .container {
+        margin: -7rem auto 0;
+    }
+    main #container-calendar-and-opening-balance {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    main #container-calendar-and-opening-balance h3#year-calendar {
+        display: inline-block;
+    }
+}
+@media (min-width: 400px) {
+    div#toast {
+        max-width: 50px;
+    }
+}
