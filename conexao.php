@@ -41,10 +41,11 @@ if (is_file($envFile) && is_readable($envFile)) {
 }
 
 $host = getenv('MYSQLHOST') ?: (getenv('DB_HOST') ?: 'localhost');
-$dbname = getenv('MYSQLDATABASE') ?: (getenv('DB_NAME') ?: 'dev_finances');
+$dbname = getenv('MYSQLDATABASE') ?: (getenv('DB_NAME') ?: 'railway');
 $user = getenv('MYSQLUSER') ?: (getenv('DB_USER') ?: 'root');
 $pass = getenv('MYSQLPASSWORD') ?: (getenv('DB_PASS') ?: '');
 $port = getenv('MYSQLPORT') ?: (getenv('DB_PORT') ?: '3306');
+$debug = filter_var(getenv('APP_DEBUG') ?: 'false', FILTER_VALIDATE_BOOLEAN);
 
 try {
     $pdo = new PDO("mysql:host=$host;port=$port;dbname=$dbname;charset=utf8mb4", $user, $pass, [
@@ -55,6 +56,16 @@ try {
 } catch (PDOException $e) {
     error_log($e->getMessage());
     http_response_code(500);
-    echo json_encode(['status' => 'error', 'message' => 'Database connection failed.']);
+    $error = ['status' => 'error', 'message' => 'Database connection failed.'];
+    if ($debug) {
+        $error['message'] = 'Database connection failed: ' . $e->getMessage();
+        $error['debug'] = [
+            'host' => $host,
+            'dbname' => $dbname,
+            'user' => $user,
+            'port' => $port,
+        ];
+    }
+    echo json_encode($error, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
     exit;
 }
